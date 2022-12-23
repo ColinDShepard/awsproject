@@ -1,0 +1,27 @@
+{% block title %}<h1> Data </h1>{% endblock %}
+
+{% block content %}  
+<form method ="POST" action="/create/">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit", name="save">Create New</button>
+<form> 
+
+{% endblock %}
+
+{% block logoff %}
+	<p>Logout <a href="/logout">here</a></p>
+
+{% endblock %}
+
+
+{% block result %}
+	{% for item in user.list.all %}
+		<p>{{item.name}}</p>
+
+	{% endfor %}
+
+{% endblock %}
+
+
+
